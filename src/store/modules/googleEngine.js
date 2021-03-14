@@ -8,7 +8,7 @@ export const gEngine = {
             console.log('message from gModule');
         },
 
-        /*
+        /* this code is for Node.js
         makeRealReq(state, text) {
             //var SerpWow = require('google-search-results-serpwow')
             // create the serpwow object, passing in our API key
@@ -36,6 +36,7 @@ export const gEngine = {
             });
         }
         */
+        
     },
     actions: {
     },

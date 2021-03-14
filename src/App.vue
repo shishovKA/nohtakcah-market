@@ -1,23 +1,26 @@
 <template>
-  <div>
-    <div>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      color="#7D859F"
+      flat
+      app
+    >
+      
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
+
 export default {
   name: 'App',
-
-  mounted() {
-    this.$store.commit('helloModule');
-  },
-
-}
+  
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style lang="scss">
-</style>
