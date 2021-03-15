@@ -28,11 +28,11 @@ class GoogleGoodsParser {
 	}
 
 	#parseProducts() {
-		const goodsTitleLinks = this.#document.querySelectorAll(
+		const productTitleLinks = this.#document.querySelectorAll(
 			".VQN8fd.translate-content"
 		)
 
-		return Array.from(goodsTitleLinks).map(this.#parseProduct.bind(this))
+		return Array.from(productTitleLinks).map(this.#parseProduct.bind(this))
 	}
 
 	#parseProduct(link) {
@@ -57,38 +57,38 @@ class GoogleGoodsParser {
 	}
 
 	#processTitleText(link) {
-		const goodsTitle = link.querySelector("h4")
-		const goodsTitleText = goodsTitle.textContent
+		const productTitle = link.querySelector("h4")
+		const productTitleText = productTitle.textContent
 
-        return ["goodsTitleText", goodsTitleText]
+        return ["productTitleText", productTitleText]
 	}
 
 	#processImgSrc(link) {
-		const goodsImg = link.previousElementSibling.querySelector("img")
-		const goodsImgSrc = goodsImg.src
+		const productImg = link.previousElementSibling.querySelector("img")
+		const productImgSrc = productImg.src
 
-        return ["goodsImgSrc", goodsImgSrc]
+        return ["productImgSrc", productImgSrc]
 	}
 
 	#processPrice(link) {
-		const goodsParams = link.parentElement.lastElementChild
-		const goodsPrice = goodsParams.querySelector("span span").textContent
+		const productParams = link.parentElement.lastElementChild
+		const productPrice = productParams.querySelector("span span").textContent
 
-        return ["goodsPrice", goodsPrice]
+        return ["productPrice", productPrice]
 	}
 
 	#processSiteName(link) {
-		const goodsParams = link.parentElement.lastElementChild
-		const goodsSiteName = goodsParams.querySelector("a").textContent
+		const productParams = link.parentElement.lastElementChild
+		const productSiteName = productParams.querySelector("a").textContent
 
-        return ["goodsSiteName", goodsSiteName]
+        return ["productSiteName", productSiteName]
 	}
 
 	#processSiteLink(link) {
-		const goodsParams = link.parentElement.lastElementChild
-		const goodsSiteLink = goodsParams.querySelector("a").href
+		const productParams = link.parentElement.lastElementChild
+		const productSiteLink = productParams.querySelector("a").href
 
-        return ["goodsSiteLink", goodsSiteLink]
+        return ["productSiteLink", productSiteLink]
 	}
 }
 
