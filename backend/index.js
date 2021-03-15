@@ -1,23 +1,11 @@
-const { googleClient, genParamsForSearch}  = require("./google-client")
-const { GoogleGoodsParser: GoogleProductsParser } = require("./google-products-parser")
+const express = require("express")
+const app = express()
+const productsRouter = require("./routes/products")
+const logggerMiddleware = require("./middlewares/logger.js")
 
-googleClient(genParamsForSearch("adidas"))
-	.then((res) => {
-		console.log(res.request._header)
-		console.log(res.headers, res.statusText, res.status)
+app.use(logggerMiddleware)
+app.use("/products", productsRouter)
 
-		if (res.status === 200) {
-			const googleProductsParser = new GoogleProductsParser(res.data)
-
-			const products = googleProductsParser.getProducts()
-
-			const jsonProducts = JSON.stringify(products)
-
-			console.log(products)
-		} else {
-			throw new Error()
-		}
-	})
-	.catch((err) => {
-		console.log(err)
-	})
+app.listen(8000, () => {
+	console.log("server is listening...")
+})

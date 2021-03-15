@@ -28,15 +28,28 @@ class GoogleGoodsParser {
 	}
 
 	#parseProducts() {
-		const productTitleLinks = this.#document.querySelectorAll(
-			".VQN8fd.translate-content"
-		)
+		const pageTypes = ["common", "brand"]
+		const contentSelectors = [".sh-dlr__content", ".sh-dgr__content"]
+		let productsContent, pageType
 
-		return Array.from(productTitleLinks).map(this.#parseProduct.bind(this))
+		for (let i = 0; i < contentSelectors.length; i++) {
+			pageType = pageTypes[i]
+			productsContent = this.#document.querySelectorAll(contentSelectors[i])
+
+			if (productsContent.length) break
+		}
+
+		if (productsContent?.length) {
+			return Array.from(productsContent).map(
+				this.#parseProduct.bind(this, pageType)
+			)
+		} else {
+			return []
+		}
 	}
 
-	#parseProduct(link) {
-        const product = {}
+	#parseProduct(type, productContent) {
+		const product = {}
 		const processFuncs = [
 			this.#processTitleText,
 			this.#processImgSrc,
@@ -45,50 +58,70 @@ class GoogleGoodsParser {
 			this.#processSiteLink
 		]
 
-        for (const processFunc of processFuncs) {
-            try {
-                const [key, value] = processFunc(link)
+		for (const processFunc of processFuncs) {
+			try {
+				const [key, value] = processFunc(type, productContent)
 
-                product[key] = value
-            } catch(e) {}
-        }
+				product[key] = value
+			} catch (e) {}
+		}
 
 		return product
 	}
 
-	#processTitleText(link) {
-		const productTitle = link.querySelector("h4")
+	#processTitleText(type, productContent) {
+		const productTitle = productContent.querySelector("h4, h3")
 		const productTitleText = productTitle.textContent
 
-        return ["productTitleText", productTitleText]
+		return ["productTitleText", productTitleText]
 	}
 
-	#processImgSrc(link) {
-		const productImg = link.previousElementSibling.querySelector("img")
+	#processImgSrc(type, productContent) {
+		const productImg = productContent.querySelector("img")
 		const productImgSrc = productImg.src
 
-        return ["productImgSrc", productImgSrc]
+		return ["productImgSrc", productImgSrc]
 	}
 
-	#processPrice(link) {
-		const productParams = link.parentElement.lastElementChild
-		const productPrice = productParams.querySelector("span span").textContent
+	#processPrice(type, productContent) {
+		const productPrice = productContent.querySelector("span span")
+			.textContent
 
-        return ["productPrice", productPrice]
+		return ["productPrice", productPrice]
 	}
 
-	#processSiteName(link) {
-		const productParams = link.parentElement.lastElementChild
-		const productSiteName = productParams.querySelector("a").textContent
+	#processSiteName(type, productContent) {
+		if (type === "common") {
+			const productPriceContainer = productContent.querySelector("span")
+			const productSiteName =
+				productPriceContainer.nextElementSibling.textContent
 
-        return ["productSiteName", productSiteName]
+			return ["productSiteName", productSiteName]
+		} else if (type === "brand") {
+			const productOffer = productContent.querySelector(
+				".sh-dgr__offer-content"
+			)
+			const productSiteName = productOffer.querySelector("a").textContent
+
+			return ["productSiteName", productSiteName]
+		}
 	}
 
-	#processSiteLink(link) {
-		const productParams = link.parentElement.lastElementChild
-		const productSiteLink = productParams.querySelector("a").href
+	#processSiteLink(type, productContent) {
+		if (type === "common") {
+			const productPriceContainer = productContent.querySelector("span")
+			const productSiteLink =
+				productPriceContainer.nextElementSibling.href
 
-        return ["productSiteLink", productSiteLink]
+			return ["productSiteLink", productSiteLink]
+		} else if (type === "brand") {
+			const productOffer = productContent.querySelector(
+				".sh-dgr__offer-content"
+			)
+			const productSiteLink = productOffer.querySelector("a").href
+
+			return ["productSiteLink", productSiteLink]
+		}
 	}
 }
 
