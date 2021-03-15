@@ -54,5 +54,12 @@ export default {
   data: () => ({
     //
   }),
+  mounted() {
+    fetch("http://localhost:8000/products/?search=shampoo")
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+      })
+  }
 };
 </script>
