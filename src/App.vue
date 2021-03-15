@@ -1,11 +1,43 @@
 <template>
   <v-app>
-    <v-app-bar
+    <v-app-bar app
       color="#7D859F"
       flat
-      app
+      dark
+      height="106"
     >
+
+      <v-toolbar-title>Находка.ru</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-autocomplete bar
+        rounded
+        solo
+        append-icon="mdi-magnify"
+        background-color="#fff"
+        color="#000"
+        light
+        label="Искать товар"
+        hide-details
+        >
+      </v-autocomplete>
+
+      <v-spacer></v-spacer>
+
+      <router-link to="/Saved" >
+        <v-btn icon>
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
+      </router-link>
+
+      <router-link to="/Cart">
+        <v-btn icon>
+          <v-icon>mdi-cart</v-icon>
+        </v-btn>
+      </router-link>
       
+
     </v-app-bar>
 
     <v-main>

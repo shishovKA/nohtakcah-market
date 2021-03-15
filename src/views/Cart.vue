@@ -4,7 +4,7 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          Start Page
+          Корзина товаров
         </h1>
       </v-col>
 
@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    name: 'Start',
+    name: 'Cart',
 
     data: () => ({
       
