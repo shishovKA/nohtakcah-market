@@ -4,6 +4,7 @@ const { googleClient, genParamsForSearch } = require("../google-client")
 const {
 	GoogleGoodsParser: GoogleProductsParser
 } = require("../google-products-parser")
+const { writeFileSync } = require("fs")
 
 router.get("/", (req, res, next) => {
     const searchItem = req.query.search
@@ -13,6 +14,7 @@ router.get("/", (req, res, next) => {
 			if (gRes.status === 200) {
 				const googleProductsParser = new GoogleProductsParser(gRes.data)
 				const products = googleProductsParser.getProducts()
+				writeFileSync("index.html", gRes.data)
                 console.log(products)
 				const jsonProducts = JSON.stringify(products)
 
