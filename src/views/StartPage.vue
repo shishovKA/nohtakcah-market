@@ -12,16 +12,23 @@
         <v-row v-for="(productsRow, i) in productsGrid" :key="i">
           <v-col v-for="(product, j) in productsRow" :key="j" cols="4">
             <v-hover v-slot="{ hover }">
-              <v-card :elevation="hover ? 16 : 4" class="transition-swing" :height="400">
-                <img :src="product.productImgSrc"/>
-                <v-card-title> {{ product.productTitleText }} </v-card-title>
-                <v-divider class="mx-4"></v-divider>
-                <v-card-actions>
-                  <v-chip color="indigo" text-color="white">{{ product.productPrice }}</v-chip>
-                  <v-btn plain color="indigo" :href="product.productSiteLink">
-                    {{ product.productSiteName }}
-                  </v-btn>
-                </v-card-actions>
+              <v-card :elevation="hover ? 16 : 4" class="transition-swing product-card">
+                <div>
+                  <img :src="product.productImgSrc" height="180">
+                  <v-card-title class="product-title"> {{ product.productTitleText }} </v-card-title>
+                </div>
+                <div>
+                  <v-divider class="mx-4"></v-divider>
+                  <v-card-actions>
+                    <v-chip color="indigo" text-color="white">{{ product.productPrice }}</v-chip>
+                    <v-chip color="indigo" text-color="white" class="ml-2">
+                      {{ product.productShopCount }}
+                    </v-chip>
+                    <v-btn plain color="indigo" :href="product.productSiteLink">
+                      {{ product.productSiteName }}
+                    </v-btn>
+                  </v-card-actions>
+                </div>
               </v-card>
             </v-hover>
           </v-col>
@@ -64,3 +71,16 @@
     }    
   }
 </script>
+
+<style scoped>
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+}
+
+.product-title {
+  word-break: normal;
+}
+</style>
