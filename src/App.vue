@@ -11,7 +11,10 @@
 
       <v-spacer></v-spacer>
 
-      <v-autocomplete bar
+      <v-autocomplete
+        @keypress.enter="searchProduct"
+        :search-input.sync="valueForSearch"
+        bar
         rounded
         solo
         append-icon="mdi-magnify"
@@ -51,15 +54,23 @@
 export default {
   name: 'App',
   
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      valueForSearch: null
+    }
+  },
   mounted() {
-    fetch("http://localhost:8000/products/?search=shampoo")
-      .then(res => res.json())
-      .then(res => {
-        console.log(res)
-      })
+  },
+  methods: {
+    searchProduct() {
+      this.$store.dispatch("searchProduct", this.valueForSearch)
+      console.log()
+    }
+  },
+  watch: {
+    searchItem(e) {
+      console.log("change", e)
+    }
   }
 };
 </script>

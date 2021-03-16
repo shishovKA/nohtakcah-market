@@ -110,15 +110,20 @@ class GoogleGoodsParser {
 	#processSiteLink(type, productContent) {
 		if (type === "common") {
 			const productPriceContainer = productContent.querySelector("span")
-			const productSiteLink =
+			let productSiteLink =
 				productPriceContainer.nextElementSibling.href
+			
+			productSiteLink = "https://www.google.com" + productSiteLink
 
 			return ["productSiteLink", productSiteLink]
 		} else if (type === "brand") {
 			const productOffer = productContent.querySelector(
 				".sh-dgr__offer-content"
 			)
-			const productSiteLink = productOffer.querySelector("a").href
+			let productSiteLink = productOffer.querySelector("a").href
+			
+			productSiteLink = "https://www.google.com" + productSiteLink
+			console.log(productSiteLink)
 
 			return ["productSiteLink", productSiteLink]
 		}
