@@ -6,6 +6,8 @@ const {
 } = require("../google-products-parser")
 const { writeFileSync } = require("fs")
 
+const { sendSerpWowReq } = require('../controllers/serpWow');
+
 router.get("/", (req, res, next) => {
     const searchItem = req.query.search
 

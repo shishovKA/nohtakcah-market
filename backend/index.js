@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const productsRouter = require("./routes/products")
+const serpWowRouter = require("./routes/serpWowRouter")
 const logggerMiddleware = require("./middlewares/logger.js")
 
 app.use((req, res, next) => {
@@ -8,7 +9,8 @@ app.use((req, res, next) => {
 	next()
 })
 app.use(logggerMiddleware)
-app.use("/products", productsRouter)
+app.use("/products", productsRouter);
+app.use('/serpwow', serpWowRouter)
 
 app.listen(8000, () => {
 	console.log("server is listening...")

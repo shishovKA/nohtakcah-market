@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "google-search-results-serpwow": "0.0.14",
     "jsdom": "^16.5.1"
   },
   "devDependencies": {},

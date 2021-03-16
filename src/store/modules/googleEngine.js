@@ -1,4 +1,4 @@
-// import SerpWow from 'google-search-results-serpwow'
+
 
 export const gEngine = {
     state: {
@@ -7,6 +7,8 @@ export const gEngine = {
         helloModule (state) {
             console.log('message from gModule');
         },
+
+        // import SerpWow from 'google-search-results-serpwow'
 
         /* this code is for Node.js
         makeRealReq(state, text) {
