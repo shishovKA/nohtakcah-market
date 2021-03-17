@@ -1,7 +1,11 @@
 <template>
     <v-app>
         <v-app-bar app color="#7D859F" flat dark height="106">
-            <v-toolbar-title>Находка.ru</v-toolbar-title>
+            <v-toolbar-title>
+                <router-link to="/" class="text-decoration-none">
+                    <h2 class="white--text">Находка.ru</h2>
+                </router-link>
+            </v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -24,7 +28,7 @@
 
             <v-spacer></v-spacer>
 
-            <router-link to="/Saved">
+            <router-link to="/Saved" class="text-decoration-none">
                 <v-btn icon>
                     <v-icon>mdi-heart</v-icon>
                 </v-btn>
@@ -48,6 +52,7 @@ export default {
     },
     methods: {
         searchProduct() {
+            this.$router.push("/")
             this.searchLoading = true
 
             this.$store.commit("setLastSearch", this.valueForSearch)
@@ -61,3 +66,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.router-link-active {
+    font-weight: bold;
+}
+</style>

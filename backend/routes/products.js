@@ -15,7 +15,6 @@ router.get("/", (req, res, next) => {
                     gRes.data,
                 )
                 const products = googleProductsParser.getProducts()
-                writeFileSync("index.html", gRes.data)
                 console.log(products)
                 const jsonProducts = JSON.stringify(products)
 

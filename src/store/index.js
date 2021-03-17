@@ -13,7 +13,6 @@ export default new Vuex.Store({
     },
     mutations: {
         addProducts(state, products) {
-            console.log(state.products.length, products.length)
             state.products = [...state.products, ...products]
             console.log(state.products)
         },

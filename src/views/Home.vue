@@ -1,9 +1,9 @@
 <template>
     <v-container>
         <v-row class="text-center">
-            <v-col class="mb-4 mt-3">
-                <h1 class="display-2 font-weight-bold mb-3">
-                    НАЙДЕМ ВСЕ И ПО ВЫГОДНОЙ ЦЕНЕ!
+            <v-col class="mt-4 mb-4">
+                <h1 class="display-2 font-weight-bold">
+                    Найдем все и по выгодной цене!
                 </h1>
             </v-col>
 
@@ -64,7 +64,7 @@ import OfferBarOneProduct from "../components/OfferBarOneProduct.vue"
 import OfferBarManyProduct from "../components/OfferBarManyProduct.vue"
 
 export default {
-    name: "Start",
+    name: "Home",
     components: { OfferBarOneProduct, OfferBarManyProduct },
     data() {
         return {}
