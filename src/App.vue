@@ -1,76 +1,66 @@
 <template>
-  <v-app>
-    <v-app-bar app
-      color="#7D859F"
-      flat
-      dark
-      height="106"
-    >
+    <v-app>
+        <v-app-bar app color="#7D859F" flat dark height="106">
+            <v-toolbar-title>Находка.ru</v-toolbar-title>
 
-      <v-toolbar-title>Находка.ru</v-toolbar-title>
+            <v-spacer></v-spacer>
 
-      <v-spacer></v-spacer>
+            <v-autocomplete
+                @keypress.enter="searchProduct"
+                :search-input.sync="valueForSearch"
+                bar
+                rounded
+                solo
+                append-icon="mdi-magnify"
+                background-color="#fff"
+                color="#000"
+                light
+                label="Искать товар"
+                hide-details
+            >
+            </v-autocomplete>
 
-      <v-autocomplete
-        @keypress.enter="searchProduct"
-        :search-input.sync="valueForSearch"
-        bar
-        rounded
-        solo
-        append-icon="mdi-magnify"
-        background-color="#fff"
-        color="#000"
-        light
-        label="Искать товар"
-        hide-details
-        >
-      </v-autocomplete>
+            <v-spacer></v-spacer>
 
-      <v-spacer></v-spacer>
+            <router-link to="/Saved">
+                <v-btn icon>
+                    <v-icon>mdi-heart</v-icon>
+                </v-btn>
+            </router-link>
 
-      <router-link to="/Saved" >
-        <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-      </router-link>
+            <router-link to="/Cart">
+                <v-btn icon>
+                    <v-icon>mdi-cart</v-icon>
+                </v-btn>
+            </router-link>
+        </v-app-bar>
 
-      <router-link to="/Cart">
-        <v-btn icon>
-          <v-icon>mdi-cart</v-icon>
-        </v-btn>
-      </router-link>
-      
-
-    </v-app-bar>
-
-    <v-main>
-      <router-view />
-    </v-main>
-  </v-app>
+        <v-main>
+            <router-view />
+        </v-main>
+    </v-app>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  
-  data() {
-    return {
-      valueForSearch: null
-    }
-  },
-  mounted() {
-  },
-  methods: {
-    searchProduct() {
-      this.$store.dispatch("searchProduct", this.valueForSearch)
-      console.log()
-    }
-  },
-  watch: {
-    searchItem(e) {
-      console.log("change", e)
-    }
-  }
+    name: "App",
+
+    data() {
+        return {
+            valueForSearch: null,
+        };
+    },
+    mounted() {},
+    methods: {
+        searchProduct() {
+            this.$store.dispatch("searchProduct", this.valueForSearch);
+            console.log();
+        },
+    },
+    watch: {
+        searchItem(e) {
+            console.log("change", e);
+        },
+    },
 };
 </script>
