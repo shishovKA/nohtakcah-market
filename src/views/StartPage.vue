@@ -44,6 +44,16 @@
                         </v-hover>
                     </v-col>
                 </v-row>
+                <v-row>
+                    <v-col>
+                        <v-btn
+                            v-if="products.length"
+                            class="mt-3 mb-3"
+                            @click="loadMore"
+                            >Загрузить еще</v-btn
+                        >
+                    </v-col>
+                </v-row>
             </v-container>
         </v-row>
     </v-container>
@@ -84,6 +94,9 @@ export default {
             } else {
                 return "OfferBarOneProduct"
             }
+        },
+        loadMore() {
+            this.$store.dispatch("loadMore")
         },
     },
 }

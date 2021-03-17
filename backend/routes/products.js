@@ -6,8 +6,9 @@ const { writeFileSync } = require("fs")
 
 router.get("/", (req, res, next) => {
     const searchItem = req.query.search
+    const searchPage = req.query.page
 
-    priceruClient(genParamsForSearch(searchItem))
+    priceruClient(genParamsForSearch(searchItem, searchPage))
         .then((gRes) => {
             if (gRes.status === 200) {
                 const googleProductsParser = new PriceruProductsParser(

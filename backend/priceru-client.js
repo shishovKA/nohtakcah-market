@@ -10,8 +10,8 @@ const priceruClient = axios.create({
     },
 })
 
-const genParamsForSearch = (textForSearch) => {
-    return { params: { query: textForSearch } }
+const genParamsForSearch = (textForSearch, pageSearch) => {
+    return { params: { query: textForSearch, page: pageSearch } }
 }
 
 module.exports = {

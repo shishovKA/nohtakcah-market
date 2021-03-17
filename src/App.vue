@@ -46,29 +46,23 @@
 <script>
 export default {
     name: "App",
-
     data() {
         return {
             valueForSearch: null,
             searchLoading: false,
         }
     },
-    mounted() {},
     methods: {
         searchProduct() {
             this.searchLoading = true
 
+            this.$store.commit("setLastSearch", this.valueForSearch)
             this.$store.commit("clearProducts")
             this.$store
                 .dispatch("searchProduct", this.valueForSearch)
                 .then(() => {
                     this.searchLoading = false
                 })
-        },
-    },
-    watch: {
-        searchItem(e) {
-            console.log("change", e)
         },
     },
 }
