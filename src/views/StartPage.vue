@@ -14,7 +14,10 @@
                         :key="j"
                         cols="4"
                     >
-                        <v-hover v-slot="{ hover }">
+                        <v-hover
+                            v-slot="{ hover }"
+                            v-if="product.productImgSrc"
+                        >
                             <v-card
                                 :elevation="hover ? 16 : 4"
                                 class="transition-swing product-card"
@@ -32,28 +35,10 @@
                                 </div>
                                 <div>
                                     <v-divider class="mx-4"></v-divider>
-                                    <v-card-actions>
-                                        <v-chip
-                                            color="indigo"
-                                            text-color="white"
-                                            >{{ product.productPrice }}</v-chip
-                                        >
-                                        <v-chip
-                                            color="indigo"
-                                            text-color="white"
-                                            class="ml-2"
-                                        >
-                                            {{ product.productShopCount }}
-                                        </v-chip>
-                                        <v-btn
-                                            plain
-                                            color="indigo"
-                                            v-if="product.productSiteLink"
-                                            :href="product.productSiteLink"
-                                        >
-                                            {{ product.productSiteName }}
-                                        </v-btn>
-                                    </v-card-actions>
+                                    <component
+                                        :is="chooseOfferBar(product)"
+                                        :product="product"
+                                    ></component>
                                 </div>
                             </v-card>
                         </v-hover>
@@ -65,9 +50,12 @@
 </template>
 
 <script>
+import OfferBarOneProduct from "../components/OfferBarOneProduct.vue";
+import OfferBarManyProduct from "../components/OfferBarManyProduct.vue";
+
 export default {
     name: "Start",
-
+    components: { OfferBarOneProduct, OfferBarManyProduct },
     data() {
         return {};
     },
@@ -91,8 +79,17 @@ export default {
 
             console.log(productsGrid);
             return productsGrid;
-        },
+        }
     },
+    methods: {
+        chooseOfferBar(product) {
+            if (product.productShopCount) {
+                return "OfferBarManyProduct";
+            } else {
+                return "OfferBarOneProduct";
+            }
+        }
+    }
 };
 </script>
 

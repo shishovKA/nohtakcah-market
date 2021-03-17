@@ -5,9 +5,9 @@
 
             <v-spacer></v-spacer>
 
-            <v-autocomplete
+            <v-text-field
                 @keypress.enter="searchProduct"
-                :search-input.sync="valueForSearch"
+                v-model="valueForSearch"
                 bar
                 rounded
                 solo
@@ -18,7 +18,7 @@
                 label="Искать товар"
                 hide-details
             >
-            </v-autocomplete>
+            </v-text-field>
 
             <v-spacer></v-spacer>
 
