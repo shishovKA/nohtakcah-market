@@ -52,7 +52,9 @@ export default {
     },
     methods: {
         searchProduct() {
-            this.$router.push("/")
+            if (this.$router.currentRoute.path !== "/") {
+                this.$router.push("/")
+            }
             this.searchLoading = true
 
             this.$store.commit("setLastSearch", this.valueForSearch)

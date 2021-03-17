@@ -88,7 +88,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px;
+    min-height: 400px;
 }
 
 .product-title {
