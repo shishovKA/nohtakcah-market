@@ -13,5 +13,5 @@ export default {
     name: "Cart",
 
     data: () => ({}),
-};
+}
 </script>

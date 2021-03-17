@@ -1,55 +1,55 @@
-const { JSDOM } = require("jsdom");
+const { JSDOM } = require("jsdom")
 
 class PriceruProductsParser {
     constructor(html) {
-        this.html = html;
-        this.dom = null;
+        this.html = html
+        this.dom = null
     }
 
     getProducts() {
-        this.#createInstance();
+        this.#createInstance()
 
-        return this.#parseProducts();
+        return this.#parseProducts()
     }
 
     #createInstance() {
-        if (this.dom) return;
-        if (typeof this.html !== "string") throw new Error();
+        if (this.dom) return
+        if (typeof this.html !== "string") throw new Error()
 
-        this.dom = this.#createDom();
+        this.dom = this.#createDom()
     }
 
     #createDom() {
-        return new JSDOM(this.html);
+        return new JSDOM(this.html)
     }
 
     get #document() {
-        return this.dom.window.document;
+        return this.dom.window.document
     }
 
     #parseProducts() {
-        const contentSelectors = ["article"];
-        let productsContent;
+        const contentSelectors = ["article"]
+        let productsContent
 
         for (let i = 0; i < contentSelectors.length; i++) {
             productsContent = this.#document.querySelectorAll(
-                contentSelectors[i]
-            );
+                contentSelectors[i],
+            )
 
-            if (productsContent.length) break;
+            if (productsContent.length) break
         }
 
         if (productsContent?.length) {
             return Array.from(productsContent).map(
-                this.#parseProduct.bind(this)
-            );
+                this.#parseProduct.bind(this),
+            )
         } else {
-            return [];
+            return []
         }
     }
 
     #parseProduct(productContent) {
-        const product = {};
+        const product = {}
         const processFuncs = [
             this.#processTitleText,
             this.#processImgSrc,
@@ -57,91 +57,91 @@ class PriceruProductsParser {
             this.#processShopCount,
             this.#processSiteName,
             this.#processSiteLink,
-        ];
+        ]
 
         for (const processFunc of processFuncs) {
             try {
-                const [key, value] = processFunc(productContent);
+                const [key, value] = processFunc(productContent)
 
-                product[key] = value;
+                product[key] = value
             } catch (e) {}
         }
 
-        return product;
+        return product
     }
 
     #processTitleText(productContent) {
-        const productTitle = productContent.querySelector(".b-item__title");
-        const productTitleText = productTitle.textContent;
+        const productTitle = productContent.querySelector(".b-item__title")
+        const productTitleText = productTitle.textContent
 
-        return ["productTitleText", productTitleText];
+        return ["productTitleText", productTitleText]
     }
 
     #processImgSrc(productContent) {
-        const productImg = productContent.querySelectorAll("img")[1];
-        const productImgSrc = productImg.src;
+        const productImg = productContent.querySelectorAll("img")[1]
+        const productImgSrc = productImg.src
 
-        return ["productImgSrc", productImgSrc];
+        return ["productImgSrc", productImgSrc]
     }
 
     #processPrice(productContent) {
         const productPrice = productContent.querySelector(".b-price a")
-            .textContent;
+            .textContent
 
-        return ["productPrice", productPrice];
+        return ["productPrice", productPrice]
     }
 
     #processShopCount(productContent) {
-        const watchPrice = productContent.querySelector(".b-button-yellow");
+        const watchPrice = productContent.querySelector(".b-button-yellow")
 
         if (watchPrice) {
             const productShopCount = productContent.querySelector(
-                ".b-item__link-shop"
-            );
-            const productShopCountText = productShopCount.textContent;
+                ".b-item__link-shop",
+            )
+            const productShopCountText = productShopCount.textContent
 
-            return ["productShopCount", productShopCountText];
+            return ["productShopCount", productShopCountText]
         } else {
-            return ["productShopCount", null];
+            return ["productShopCount", null]
         }
     }
 
     #processSiteName(productContent) {
-        const shopLink = productContent.querySelector(".b-button-pink");
+        const shopLink = productContent.querySelector(".b-button-pink")
 
         if (shopLink) {
             const productSiteChip = productContent.querySelector(
-                ".b-item__link-shop a"
-            );
-            const productSiteName = productSiteChip.textContent;
+                ".b-item__link-shop a",
+            )
+            const productSiteName = productSiteChip.textContent
 
-            return ["productSiteName", productSiteName];
+            return ["productSiteName", productSiteName]
         } else {
-            return ["productSiteName", null];
+            return ["productSiteName", null]
         }
     }
 
     #processSiteLink(productContent) {
-        const shopLink = productContent.querySelector(".b-button-pink");
+        const shopLink = productContent.querySelector(".b-button-pink")
 
         if (shopLink) {
-            console.log("yes");
-            const productSiteLinkBase64 = shopLink.dataset.sitelink;
+            console.log("yes")
+            const productSiteLinkBase64 = shopLink.dataset.sitelink
             const productSiteLinkBuff = Buffer.from(
                 productSiteLinkBase64,
-                "base64"
-            );
-            let productSiteLink = productSiteLinkBuff.toString("utf-8");
+                "base64",
+            )
+            let productSiteLink = productSiteLinkBuff.toString("utf-8")
 
-            productSiteLink = "https://price.ru" + productSiteLink;
+            productSiteLink = "https://price.ru" + productSiteLink
 
-            return ["productSiteLink", productSiteLink];
+            return ["productSiteLink", productSiteLink]
         } else {
-            return ["productSiteLink", null];
+            return ["productSiteLink", null]
         }
     }
 }
 
 module.exports = {
     PriceruProductsParser,
-};
+}

@@ -1,36 +1,36 @@
-const express = require("express");
-const router = express.Router();
-const { priceruClient, genParamsForSearch } = require("../priceru-client");
-const { PriceruProductsParser } = require("../priceru-products-parser");
-const { writeFileSync } = require("fs");
+const express = require("express")
+const router = express.Router()
+const { priceruClient, genParamsForSearch } = require("../priceru-client")
+const { PriceruProductsParser } = require("../priceru-products-parser")
+const { writeFileSync } = require("fs")
 
 router.get("/", (req, res, next) => {
-    const searchItem = req.query.search;
+    const searchItem = req.query.search
 
     priceruClient(genParamsForSearch(searchItem))
         .then((gRes) => {
             if (gRes.status === 200) {
                 const googleProductsParser = new PriceruProductsParser(
-                    gRes.data
-                );
-                const products = googleProductsParser.getProducts();
-                writeFileSync("index.html", gRes.data);
-                console.log(products);
-                const jsonProducts = JSON.stringify(products);
+                    gRes.data,
+                )
+                const products = googleProductsParser.getProducts()
+                writeFileSync("index.html", gRes.data)
+                console.log(products)
+                const jsonProducts = JSON.stringify(products)
 
-                res.send(jsonProducts);
-                next();
+                res.send(jsonProducts)
+                next()
             } else {
-                next(new Error());
+                next(new Error())
             }
         })
         .catch((err) => {
-            next(err);
-        });
-});
+            next(err)
+        })
+})
 
 router.use((err, req, res, next) => {
-    res.status(500).send();
-});
+    res.status(500).send()
+})
 
-module.exports = router;
+module.exports = router

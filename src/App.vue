@@ -51,23 +51,24 @@ export default {
         return {
             valueForSearch: null,
             searchLoading: false,
-        };
+        }
     },
     mounted() {},
     methods: {
         searchProduct() {
             this.searchLoading = true
 
-            this.$store.dispatch("searchProduct", this.valueForSearch)
+            this.$store
+                .dispatch("searchProduct", this.valueForSearch)
                 .then(() => {
-                    this.searchLoading = false 
+                    this.searchLoading = false
                 })
         },
     },
     watch: {
         searchItem(e) {
-            console.log("change", e);
+            console.log("change", e)
         },
     },
-};
+}
 </script>

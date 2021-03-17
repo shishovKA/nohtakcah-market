@@ -36,47 +36,29 @@ const result = {
         next:
             "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=20&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8NMDCOcF",
         other_pages: {
-            2:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=20&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNUF",
-            3:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=40&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNcF",
-            4:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=60&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNkF",
-            5:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=80&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNsF",
-            6:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=100&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCN0F",
-            7:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=120&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCN8F",
-            8:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=140&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCOEF",
-            9:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=160&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCOMF",
-            10:
-                "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=180&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCOUF",
+            2: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=20&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNUF",
+            3: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=40&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNcF",
+            4: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=60&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNkF",
+            5: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=80&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCNsF",
+            6: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=100&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCN0F",
+            7: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=120&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCN8F",
+            8: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=140&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCOEF",
+            9: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=160&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCOMF",
+            10: "https://www.google.ru/search?q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+nike&newwindow=1&gl=ru&hl=ru&tbs=vw:l,cat:187,pdtr0:4345328%7C4345329,init_ar:SgVKAwi7AUoKUggI0Zs1IOSeNUoMUgoI8JuJAiDxm4kC,ss:44&tbm=shop&ei=qglOYNZYooSMuw-C4qKYCg&start=180&sa=N&ved=0ahUKEwjW1dmX7K_vAhUiAmMBHQKxCKMQ8tMDCOUF",
         },
         api_pagination: {
             next:
                 "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=3",
             other_pages: {
-                2:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=3",
-                3:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=5",
-                4:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=7",
-                5:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=9",
-                6:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=11",
-                7:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=13",
-                8:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=15",
-                9:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=17",
-                10:
-                    "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=19",
+                2: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=3",
+                3: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=5",
+                4: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=7",
+                5: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=9",
+                6: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=11",
+                7: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=13",
+                8: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=15",
+                9: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=17",
+                10: "https://api.serpwow.com/live/search?api_key=2E0ED348B7E44BFAB65D258090880948&q=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&shopping_buy_on_google=false&google_domain=google.ru&location=Russia&gl=ru&hl=ru&search_type=shopping&engine=google&page=19",
             },
         },
     },
@@ -520,4 +502,4 @@ const result = {
             position: 20,
         },
     ],
-};
+}

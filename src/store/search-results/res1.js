@@ -156,14 +156,10 @@ const nike = {
         next:
             "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=1",
         other_pages: {
-            2:
-                "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=1",
-            3:
-                "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=2",
-            4:
-                "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=3",
-            5:
-                "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=4",
+            2: "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=1",
+            3: "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=2",
+            4: "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=3",
+            5: "https://www.yandex.com/search/?text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8%20nike&lr=110002&p=4",
         },
     },
-};
+}

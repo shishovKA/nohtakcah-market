@@ -50,43 +50,43 @@
 </template>
 
 <script>
-import OfferBarOneProduct from "../components/OfferBarOneProduct.vue";
-import OfferBarManyProduct from "../components/OfferBarManyProduct.vue";
+import OfferBarOneProduct from "../components/OfferBarOneProduct.vue"
+import OfferBarManyProduct from "../components/OfferBarManyProduct.vue"
 
 export default {
     name: "Start",
     components: { OfferBarOneProduct, OfferBarManyProduct },
     data() {
-        return {};
+        return {}
     },
     computed: {
         products() {
-            return this.$store.state.products;
+            return this.$store.state.products
         },
         productsGrid() {
-            let productsGrid = [];
+            let productsGrid = []
 
             for (let i = 0; i < this.products.length; i += 3) {
-                const productsRow = [];
+                const productsRow = []
                 for (let j = i; j < this.products.length && j < i + 3; j++) {
-                    productsRow.push(this.products[j]);
+                    productsRow.push(this.products[j])
                 }
-                productsGrid.push(productsRow);
+                productsGrid.push(productsRow)
             }
 
-            return productsGrid;
-        }
+            return productsGrid
+        },
     },
     methods: {
         chooseOfferBar(product) {
             if (product.productShopCount) {
-                return "OfferBarManyProduct";
+                return "OfferBarManyProduct"
             } else {
-                return "OfferBarOneProduct";
+                return "OfferBarOneProduct"
             }
-        }
-    }
-};
+        },
+    },
+}
 </script>
 
 <style scoped>
