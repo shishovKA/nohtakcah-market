@@ -29,12 +29,6 @@
                     <v-icon>mdi-heart</v-icon>
                 </v-btn>
             </router-link>
-
-            <router-link to="/Cart">
-                <v-btn icon>
-                    <v-icon>mdi-cart</v-icon>
-                </v-btn>
-            </router-link>
         </v-app-bar>
 
         <v-main>
