@@ -8,17 +8,42 @@ router.get("/", (req, res, next) => {
     const searchItem = req.query.search
     const searchPage = req.query.page
 
-    priceruClient(genParamsForSearch(searchItem, searchPage))
+    priceruClient("/search", genParamsForSearch(searchItem, searchPage))
         .then((gRes) => {
             if (gRes.status === 200) {
-                const googleProductsParser = new PriceruProductsParser(
+                const priceruProductsParser = new PriceruProductsParser(
                     gRes.data,
                 )
-                const products = googleProductsParser.getProducts()
+                const products = priceruProductsParser.getProducts()
                 console.log(products)
                 const jsonProducts = JSON.stringify(products)
 
                 res.send(jsonProducts)
+                next()
+            } else {
+                next(new Error())
+            }
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
+
+router.get("/offers", (req, res, next) => {
+    const offersLink = req.query.offer
+    console.log(offersLink)
+    priceruClient(offersLink)
+        .then((gRes) => {
+            // console.log(gRes)
+            if (gRes.status === 200) {
+                const priceruProductsParser = new PriceruProductsParser(
+                    gRes.data,
+                )
+                const offers = priceruProductsParser.getOffers(offersLink)
+                console.log(offers)
+                const jsonOffers = JSON.stringify(offers)
+
+                res.send(jsonOffers)
                 next()
             } else {
                 next(new Error())

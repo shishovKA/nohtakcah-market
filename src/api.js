@@ -11,3 +11,11 @@ export function getProducts(productName, pageSearch) {
         .then((res) => res.data)
         .catch((err) => console.log(err))
 }
+
+export function getOffers(offersLink) {
+    return httpClient("/products/offers", {
+        params: { offer: offersLink },
+    })
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+}

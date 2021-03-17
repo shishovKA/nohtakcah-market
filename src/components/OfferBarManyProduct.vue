@@ -1,5 +1,12 @@
 <template>
     <div>
+        <v-progress-linear
+            :active="offersLoading"
+            :indeterminate="offersLoading"
+            absolute
+            bottom
+            color="deep-purple accent-4"
+        ></v-progress-linear>
         <v-card-actions>
             <v-chip color="indigo" text-color="white">{{
                 product.productPrice
@@ -17,14 +24,22 @@
         <v-expand-transition>
             <div v-show="showShopOffers">
                 <v-divider></v-divider>
-
-                <v-card-text>
-                    I'm a thing. But, like most politicians, he promised more
-                    than he could deliver. You won't have time for sleeping,
-                    soldier, not with all the bed making you'll be doing. Then
-                    we'll go with that data file! Hey, you add a one and two
-                    zeros to that or we walk! You're going to do his laundry?
-                    I've got to find a way to escape.
+                <v-card-text
+                    v-for="(offer, i) in offers"
+                    :key="i"
+                    class="d-flex pb-1 pt-1 align-center"
+                >
+                    <div class="font-weight-bold">{{ offer.offerPrice }}</div>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        plain
+                        color="indigo"
+                        v-if="offer.offerShopLink"
+                        :href="offer.offerShopLink"
+                        class="pr-0"
+                    >
+                        {{ offer.offerShopName || "В магазин" }}
+                    </v-btn>
                 </v-card-text>
             </div>
         </v-expand-transition>
@@ -32,16 +47,29 @@
 </template>
 
 <script>
+import { getOffers } from "../api"
+
 export default {
     props: ["product"],
     data() {
         return {
             showShopOffers: false,
+            offers: [],
+            offersLoading: false,
         }
     },
     methods: {
         reverseShowShopOffers() {
             this.showShopOffers = !this.showShopOffers
+
+            if (this.showShopOffers && this.offers.length === 0) {
+                this.offersLoading = true
+
+                getOffers(this.product.productOffersLink).then((offers) => {
+                    this.offers = offers
+                    this.offersLoading = false
+                })
+            }
         },
     },
 }

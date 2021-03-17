@@ -1,7 +1,7 @@
 const axios = require("axios")
 
 const priceruClient = axios.create({
-    baseURL: "https://price.ru/search",
+    baseURL: "https://price.ru/",
     timeout: 5000,
     headers: {
         "user-agent":

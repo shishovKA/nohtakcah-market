@@ -12,6 +12,12 @@ class PriceruProductsParser {
         return this.#parseProducts()
     }
 
+    getOffers() {
+        this.#createInstance()
+
+        return this.#parseOffers()
+    }
+
     #createInstance() {
         if (this.dom) return
         if (typeof this.html !== "string") throw new Error()
@@ -57,6 +63,7 @@ class PriceruProductsParser {
             this.#processShopCount,
             this.#processSiteName,
             this.#processSiteLink,
+            this.#processOffersLink,
         ]
 
         for (const processFunc of processFuncs) {
@@ -74,6 +81,7 @@ class PriceruProductsParser {
         const productTitle = productContent.querySelector(".b-item__title")
         const productTitleText = productTitle.textContent
 
+        console.log(productTitleText)
         return ["productTitleText", productTitleText]
     }
 
@@ -139,6 +147,72 @@ class PriceruProductsParser {
         } else {
             return ["productSiteLink", null]
         }
+    }
+
+    #processOffersLink(productContent) {
+        const offersLink = productContent.querySelector(".b-button-yellow")
+
+        if (offersLink) {
+            const productOffersLink = offersLink.dataset.hidelink
+
+            return ["productOffersLink", productOffersLink]
+        } else {
+            return ["productOffersLink", null]
+        }
+    }
+
+    #parseOffers() {
+        const offers = this.#document.querySelectorAll(
+            "article.b-list-viewtable__item",
+        )
+
+        return Array.from(offers).map(this.#parseOffer.bind(this))
+    }
+
+    #parseOffer(offerContent) {
+        const offer = {}
+        const processFuncs = [
+            this.#processOfferPrice,
+            this.#processOfferShopName,
+            this.#processOfferShopLink,
+        ]
+
+        for (const processFunc of processFuncs) {
+            try {
+                const [key, value] = processFunc(offerContent)
+
+                offer[key] = value
+            } catch (e) {}
+        }
+
+        return offer
+    }
+
+    #processOfferPrice(offerContent) {
+        const offerPrice = offerContent.querySelector(".b-price a").textContent
+
+        return ["offerPrice", offerPrice]
+    }
+
+    #processOfferShopName(offerContent) {
+        const shopLink = offerContent.querySelector(
+            ".b-list-viewtable__item-title-shoplink",
+        )
+        console.log(shopLink)
+        const shopName = shopLink.textContent
+        console.log(shopName)
+
+        return ["offerShopName", shopName]
+    }
+
+    #processOfferShopLink(offerContent) {
+        const shopLink = offerContent.querySelector(".b-button-pink")
+        const shopLinkBase64 = shopLink.dataset.sitelink
+        const shopLinkBuff = Buffer.from(shopLinkBase64, "base64")
+        let offerShopLink = shopLinkBuff.toString("utf-8")
+
+        offerShopLink = "https://price.ru" + offerShopLink
+        return ["offerShopLink", offerShopLink]
     }
 }
 
