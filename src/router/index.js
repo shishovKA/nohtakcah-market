@@ -1,6 +1,6 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import StartPage from "../views/StartPage.vue"
+import Home from "../views/Home.vue"
 import Cart from "../views/Cart.vue"
 import Saved from "../views/Saved.vue"
 
@@ -10,7 +10,7 @@ const routes = [
     {
         path: "/",
         name: "Start",
-        component: StartPage,
+        component: Home,
     },
     {
         path: "/Cart",
