@@ -2,9 +2,9 @@
   <v-container>
     <v-row class="text-center">
 
-      <v-col class="mb-4">
+      <v-col class="mb-4 mt-3">
         <h1 class="display-2 font-weight-bold mb-3">
-          Start Page
+          НАЙДЕМ ВСЕ И ПО ВЫГОДНОЙ ЦЕНЕ!
         </h1>
       </v-col>
 
@@ -14,7 +14,9 @@
             <v-hover v-slot="{ hover }">
               <v-card :elevation="hover ? 16 : 4" class="transition-swing product-card">
                 <div>
-                  <img :src="product.productImgSrc" height="180">
+                  <div class="product-img-container">
+                    <img :src="product.productImgSrc" class="product-img">
+                  </div>
                   <v-card-title class="product-title"> {{ product.productTitleText }} </v-card-title>
                 </div>
                 <div>
@@ -24,7 +26,11 @@
                     <v-chip color="indigo" text-color="white" class="ml-2">
                       {{ product.productShopCount }}
                     </v-chip>
-                    <v-btn plain color="indigo" :href="product.productSiteLink">
+                    <v-btn
+                      plain color="indigo" 
+                      v-if="product.productSiteLink"
+                      :href="product.productSiteLink"
+                    >
                       {{ product.productSiteName }}
                     </v-btn>
                   </v-card-actions>
@@ -73,6 +79,7 @@
 </script>
 
 <style scoped>
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -83,4 +90,14 @@
 .product-title {
   word-break: normal;
 }
+
+.product-img-container {
+  height: 200px;
+  padding-top: 20px;
+}
+
+.product-img {
+  max-height: 180px;
+}
+
 </style>
