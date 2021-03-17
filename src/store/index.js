@@ -9,7 +9,8 @@ export default new Vuex.Store({
     state: {
         products: [],
         lastSearch: "",
-        pageSearch: 1
+        pageSearch: 1,
+        bookmarks: [],
     },
     mutations: {
         addProducts(state, products) {
@@ -25,7 +26,26 @@ export default new Vuex.Store({
         },
         increasePageSearch(state) {
             state.pageSearch += 1
-        }
+        },
+        importBookmarks(state) {
+            const bookmarks = localStorage.bookmarks
+
+            try {
+                state.bookmarks = JSON.parse(bookmarks)
+            } catch(e) {}
+        },
+        saveBookmark(state, product) {
+            state.bookmarks.push(product)
+
+            localStorage.bookmarks = JSON.stringify(state.bookmarks)
+        },
+        removeBookmark(state, product) {
+            state.bookmarks = state.bookmarks.filter(
+                (bookmark) => bookmark.productTitleText !== product.productTitleText,
+            )
+
+            localStorage.bookmarks = JSON.stringify(state.bookmarks)
+        },
     },
     actions: {
         searchProduct({ state, commit }, valueForSearch) {
@@ -39,15 +59,14 @@ export default new Vuex.Store({
                 })
         },
         loadMore({ state, commit }) {
-            console.log(state.pageSearch)
             return getProducts(state.lastSearch, state.pageSearch)
-            .then((products) => {
-                commit("addProducts", products)
-                commit("increasePageSearch")
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+                .then((products) => {
+                    commit("addProducts", products)
+                    commit("increasePageSearch")
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         },
     },
     modules: {

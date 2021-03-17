@@ -7,13 +7,23 @@
                 </h1>
             </v-col>
         </v-row>
+        <ProductGrid :products="bookmarks" />
     </v-container>
 </template>
 
 <script>
+import ProductGrid from "../components/ProductGrid.vue"
+
 export default {
     name: "Saved",
-
-    data: () => ({}),
+    components: { ProductGrid },
+    mounted() {
+        this.$store.commit("importBookmarks")
+    },
+    computed: {
+        bookmarks() {
+            return this.$store.state.bookmarks
+        },
+    },
 }
 </script>
