@@ -92,29 +92,53 @@ class GoogleGoodsParser {
 	}
 
 	#processShopCount(productContent) {
-		const productShopCount = productContent.querySelector(
-			".b-item__link-shop"
-		)
-		const productShopCountText = productShopCount.textContent
+		const watchPrice = productContent.querySelector(".b-button-yellow")
 
-		return ["productShopCount", productShopCountText]
+		if (watchPrice) {
+			const productShopCount = productContent.querySelector(
+				".b-item__link-shop"
+			)
+			const productShopCountText = productShopCount.textContent
+
+			return ["productShopCount", productShopCountText]
+		} else {
+			return ["productShopCount", null]
+		}
 	}
 
 	#processSiteName(productContent) {
-		const productPriceContainer = productContent.querySelector("span")
-		const productSiteName =
-			productPriceContainer.nextElementSibling.textContent
+		const shopLink = productContent.querySelector(".b-button-pink")
 
-		return ["productSiteName", productSiteName]
+		if (shopLink) {
+			const productSiteChip = productContent.querySelector(
+				".b-item__link-shop a"
+			)
+			const productSiteName = productSiteChip.textContent
+
+			return ["productSiteName", productSiteName]
+		} else {
+			return ["productSiteName", null]
+		}
 	}
 
 	#processSiteLink(productContent) {
-		const productPriceContainer = productContent.querySelector("span")
-		let productSiteLink = productPriceContainer.nextElementSibling.href
+		const shopLink = productContent.querySelector(".b-button-pink")
 
-		productSiteLink = "https://www.google.com" + productSiteLink
+		if (shopLink) {
+			console.log("yes")
+			const productSiteLinkBase64 = shopLink.dataset.sitelink
+			const productSiteLinkBuff = Buffer.from(
+				productSiteLinkBase64,
+				"base64"
+			)
+			let productSiteLink = productSiteLinkBuff.toString("utf-8")
 
-		return ["productSiteLink", productSiteLink]
+			productSiteLink = "https://price.ru" + productSiteLink
+
+			return ["productSiteLink", productSiteLink]
+		} else {
+			return ["productSiteLink", null]
+		}
 	}
 }
 
