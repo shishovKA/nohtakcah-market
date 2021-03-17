@@ -85,7 +85,7 @@ class PriceruProductsParser {
 	}
 
 	#processPrice(productContent) {
-		const productPrice = productContent.querySelector(".b-price")
+		const productPrice = productContent.querySelector(".b-price a")
 			.textContent
 
 		return ["productPrice", productPrice]
