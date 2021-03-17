@@ -14,6 +14,9 @@ export default new Vuex.Store({
             state.products = [...state.products, ...products]
             console.log(state.products)
         },
+        clearProducts(state) {
+            state.products = []
+        },
     },
     actions: {
         searchProduct({ commit }, valueForSearch) {

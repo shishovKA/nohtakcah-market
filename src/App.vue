@@ -58,6 +58,7 @@ export default {
         searchProduct() {
             this.searchLoading = true
 
+            this.$store.commit("clearProducts")
             this.$store
                 .dispatch("searchProduct", this.valueForSearch)
                 .then(() => {
