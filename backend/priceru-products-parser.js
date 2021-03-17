@@ -79,9 +79,10 @@ class PriceruProductsParser {
 
     #processImgSrc(productContent) {
         const productImg = productContent.querySelectorAll("img")[1]
-        const productImgSrc = productImg.src
 
-        return ["productImgSrc", productImgSrc]
+        if (!productImg) return ["productImgSrc", null]
+
+        return ["productImgSrc", productImg.src]
     }
 
     #processPrice(productContent) {
@@ -125,7 +126,6 @@ class PriceruProductsParser {
         const shopLink = productContent.querySelector(".b-button-pink")
 
         if (shopLink) {
-            console.log("yes")
             const productSiteLinkBase64 = shopLink.dataset.sitelink
             const productSiteLinkBuff = Buffer.from(
                 productSiteLinkBase64,
