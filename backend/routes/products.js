@@ -1,20 +1,18 @@
 const express = require("express")
 const router = express.Router()
-const { googleClient, genParamsForSearch } = require("../google-client")
+const { priceruClient, genParamsForSearch } = require("../priceru-client")
 const {
-	GoogleGoodsParser: GoogleProductsParser
-} = require("../google-products-parser")
+	PriceruProductsParser
+} = require("../priceru-products-parser")
 const { writeFileSync } = require("fs")
-
-const { sendSerpWowReq } = require('../controllers/serpWow');
 
 router.get("/", (req, res, next) => {
     const searchItem = req.query.search
 
-	googleClient(genParamsForSearch(searchItem))
+	priceruClient(genParamsForSearch(searchItem))
 		.then((gRes) => {
 			if (gRes.status === 200) {
-				const googleProductsParser = new GoogleProductsParser(gRes.data)
+				const googleProductsParser = new PriceruProductsParser(gRes.data)
 				const products = googleProductsParser.getProducts()
 				writeFileSync("index.html", gRes.data)
                 console.log(products)

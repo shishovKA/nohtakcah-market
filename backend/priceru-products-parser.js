@@ -1,6 +1,6 @@
 const { JSDOM } = require("jsdom")
 
-class GoogleGoodsParser {
+class PriceruProductsParser {
 	constructor(html) {
 		this.html = html
 		this.dom = null
@@ -143,5 +143,5 @@ class GoogleGoodsParser {
 }
 
 module.exports = {
-	GoogleGoodsParser
+	PriceruProductsParser
 }

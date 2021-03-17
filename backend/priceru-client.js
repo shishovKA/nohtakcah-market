@@ -1,6 +1,6 @@
 const axios = require("axios")
 
-const googleClient = axios.create({
+const priceruClient = axios.create({
 	baseURL: "https://price.ru/search",
 	timeout: 5000,
 	headers: {
@@ -15,6 +15,6 @@ const genParamsForSearch = (textForSearch) => {
 }
 
 module.exports = {
-	googleClient,
+	priceruClient,
 	genParamsForSearch
 }
