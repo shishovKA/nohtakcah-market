@@ -59,9 +59,6 @@ export default {
     data() {
         return {};
     },
-    mounted() {
-        console.log(this.$store.dispatch);
-    },
     computed: {
         products() {
             return this.$store.state.products;
@@ -77,7 +74,6 @@ export default {
                 productsGrid.push(productsRow);
             }
 
-            console.log(productsGrid);
             return productsGrid;
         }
     },

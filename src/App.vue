@@ -17,6 +17,8 @@
                 light
                 label="Искать товар"
                 hide-details
+                :loading="searchLoading"
+                :disabled="searchLoading"
             >
             </v-text-field>
 
@@ -48,13 +50,18 @@ export default {
     data() {
         return {
             valueForSearch: null,
+            searchLoading: false,
         };
     },
     mounted() {},
     methods: {
         searchProduct() {
-            this.$store.dispatch("searchProduct", this.valueForSearch);
-            console.log();
+            this.searchLoading = true
+
+            this.$store.dispatch("searchProduct", this.valueForSearch)
+                .then(() => {
+                    this.searchLoading = false 
+                })
         },
     },
     watch: {

@@ -17,7 +17,7 @@ export default new Vuex.Store({
     },
     actions: {
         searchProduct({ commit }, valueForSearch) {
-            getProducts(valueForSearch)
+            return getProducts(valueForSearch)
                 .then((products) => {
                     commit("addProducts", products);
                 })
