@@ -60,6 +60,8 @@ export default {
     },
     methods: {
         reverseShowShopOffers() {
+            if (this.offersLoading == true) return 
+            
             this.showShopOffers = !this.showShopOffers
 
             if (this.showShopOffers && this.offers.length === 0) {
