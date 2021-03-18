@@ -52,8 +52,11 @@ export default {
     },
     methods: {
         searchProduct() {
+            console.log(window.location.publicPath);
             if (this.$router.currentRoute.path !== "/") {
-                this.$router.push("/")
+                //this.$router.push("/")
+                const route = (this.$router.options.routes || []).find((r) => r.path === '/')
+                this.$router.push({path: route.path})
             }
             this.searchLoading = true
 
