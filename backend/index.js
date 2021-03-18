@@ -4,7 +4,7 @@ const productsRouter = require("./routes/products")
 const serpWowRouter = require("./routes/serpWowRouter")
 const logggerMiddleware = require("./middlewares/logger.js")
 
-app.use(express.static("dist"))
+app.use("/static", express.static("dist"))
 
 app.use((req, res, next) => {
     res.set("Access-Control-Allow-Origin", "*")

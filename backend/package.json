@@ -7,15 +7,16 @@
     },
     "dependencies": {
         "axios": "^0.21.1",
-        "cross-env": "^7.0.3",
         "express": "^4.17.1",
         "google-search-results-serpwow": "0.0.14",
         "jsdom": "^16.5.1"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "cross-env": "^7.0.3"
+    },
     "scripts": {
         "dev": "cross-env PORT=3000 node index.js",
-        "start": "node index.js"
+        "heroku": "node index.js"
     },
     "keywords": [],
     "author": "",

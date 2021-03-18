@@ -4,13 +4,11 @@
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "cross-env NODE_ENV=production vue-cli-service build",
-        "dev": "cross-env NODE_ENV=development vue-cli-service build"
+        "build": "vue-cli-service build"
     },
     "dependencies": {
         "axios": "^0.21.1",
         "core-js": "^3.6.5",
-        "cross-env": "^7.0.3",
         "google-search-results-serpwow": "0.0.14",
         "vue": "^2.6.11",
         "vue-router": "^3.2.0",
