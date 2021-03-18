@@ -1,7 +1,9 @@
 import axios from "axios"
 
+const serverUrl = process.env.NODE_ENV === "production" ? "http://178.154.198.174:8000" : "http://localhost:8000";
+
 const httpClient = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: serverUrl,
 })
 
 export function getProducts(productName, pageSearch) {
