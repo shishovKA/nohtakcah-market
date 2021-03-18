@@ -9,12 +9,12 @@ const publicPath = process.env.NODE_ENV === "production" ? "/nohtakcah-market/" 
 
 const routes = [
     {
-        path: publicPath,
+        path: '/',
         name: "Start",
         component: Home,
     },
     {
-        path: publicPath+"Saved",
+        path: "/Saved",
         name: "Saved",
         component: Saved,
     },
