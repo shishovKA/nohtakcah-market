@@ -3,15 +3,22 @@
 # остановить публикацию при ошибках
 set -e
 
-# сборка
-npm run build
+# remove deploy previous directory
+rm -rf deploy
 
-# переход в каталог сборки
-cd dist
+# copy backed
+cp -a backend deploy
+rm -rf deploy/node_modules
+
+# сборка frontend
+cd frontend
+npm run build
+cd -
 
 # если вы публикуете на пользовательский домен
 # echo 'www.example.com' > CNAME
 
+cd deploy
 git init
 git add -A
 git commit -m 'deploy'
@@ -20,6 +27,7 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # если вы публикуете по адресу https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:shishovKA/nohtakcah-market.git master:gh-pages
+heroku git:remote -a notakah
+git push -f heroku main
 
 cd -

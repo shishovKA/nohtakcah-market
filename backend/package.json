@@ -1,5 +1,5 @@
 {
-    "name": "google-market-parser",
+    "name": "notakah-backend",
     "version": "1.0.0",
     "main": "index.js",
     "directories": {
@@ -11,9 +11,12 @@
         "google-search-results-serpwow": "0.0.14",
         "jsdom": "^16.5.1"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "cross-env": "^7.0.3"
+    },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "cross-env PORT=3000 node index.js",
+        "heroku": "node index.js"
     },
     "keywords": [],
     "author": "",

@@ -1,11 +1,10 @@
 {
-    "name": "nohtakcah-market",
+    "name": "nohtakcah-frontend",
     "version": "0.1.0",
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "prod-server": "node backend/index.js"
+        "build": "vue-cli-service build"
     },
     "dependencies": {
         "axios": "^0.21.1",
