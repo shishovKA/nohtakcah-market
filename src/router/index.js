@@ -5,14 +5,16 @@ import Saved from "../views/Saved.vue"
 
 Vue.use(VueRouter)
 
+const publicPath = process.env.NODE_ENV === "production" ? "/nohtakcah-market/" : "/",
+
 const routes = [
     {
-        path: "/",
+        path: publicPath,
         name: "Start",
         component: Home,
     },
     {
-        path: "/Saved",
+        path: publicPath+"Saved",
         name: "Saved",
         component: Saved,
     },
