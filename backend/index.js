@@ -7,8 +7,8 @@ const path = require("path")
 
 app.use("/static", express.static("dist"))
 
-app.use((req, res, next) => {
-    res.set("Access-Control-Allow-Origin", "*")
+app.options((req, res, next) => {
+    res.set("Access-Control-Allow-Origin", "http://localhost:8080")
     next()
 })
 app.use(logggerMiddleware)
