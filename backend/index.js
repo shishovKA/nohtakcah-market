@@ -3,6 +3,7 @@ const app = express()
 const productsRouter = require("./routes/products")
 const serpWowRouter = require("./routes/serpWowRouter")
 const logggerMiddleware = require("./middlewares/logger.js")
+const path = require("path")
 
 app.use("/static", express.static("dist"))
 
@@ -11,6 +12,9 @@ app.use((req, res, next) => {
     next()
 })
 app.use(logggerMiddleware)
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist/index.html"))
+})
 app.use("/products", productsRouter)
 app.use("/serpwow", serpWowRouter)
 
