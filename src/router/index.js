@@ -5,7 +5,7 @@ import Saved from "../views/Saved.vue"
 
 Vue.use(VueRouter)
 
-const publicPath = process.env.NODE_ENV === "production" ? "/nohtakcah-market/" : "/",
+const publicPath = process.env.NODE_ENV === "production" ? "/nohtakcah-market/" : "/";
 
 const routes = [
     {
@@ -21,6 +21,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+    base: publicPath,
     mode: "history",
     routes,
 })
