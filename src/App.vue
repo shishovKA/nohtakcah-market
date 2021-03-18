@@ -1,9 +1,11 @@
 <template>
     <v-app>
         <v-app-bar app color="#7D859F" flat dark height="106">
-            <v-toolbar-title>
+            <v-toolbar-title class="flex-shrink-0 mr-2">
                 <router-link to="/" class="text-decoration-none">
-                    <h2 class="white--text">Находка.ru</h2>
+                    <h1 class="white--text text-h6 text-sm-h4">
+                        Находка.ru
+                    </h1>
                 </router-link>
             </v-toolbar-title>
 
