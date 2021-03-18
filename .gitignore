@@ -3,6 +3,7 @@ node_modules
 /dist
 /frontend/dist
 
+/deploy
 
 # local env files
 .env.local

@@ -3,11 +3,20 @@
 # остановить публикацию при ошибках
 set -e
 
-# сборка
+# copy backed
+rm -rf backend/node_modules
+cp -a backend deploy
+
+cd backend
+npm install
+cd -
+
+# сборка frontend
+cd frontend
+
 npm run build
 
-# переход в каталог сборки
-cd dist
+cd -
 
 # если вы публикуете на пользовательский домен
 # echo 'www.example.com' > CNAME
