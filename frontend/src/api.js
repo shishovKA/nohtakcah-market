@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const serverUrl = process.env.NODE_ENV === "production" ? "https://nohtakcah-market-back.tk" : "http://localhost:3000";
+const serverUrl = process.env.NODE_ENV === "production" ? "/" : "http://localhost:3000";
 
 const httpClient = axios.create({
     baseURL: serverUrl,
