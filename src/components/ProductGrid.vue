@@ -1,7 +1,7 @@
 <template>
     <div>
-        <v-row v-for="(productsRow, i) in productsGrid" :key="i">
-            <v-col v-for="(product, j) in productsRow" :key="j" cols="4">
+        <v-row>
+            <v-col v-for="(product, i) in products" :key="i" xs="12" sm="6" md="6" lg="4" xl="3">
                 <Product :product="product" />
             </v-col>
         </v-row>
@@ -15,20 +15,5 @@ export default {
     name: "ProductGrid",
     props: ["products"],
     components: { Product },
-    computed: {
-        productsGrid() {
-            let productsGrid = []
-
-            for (let i = 0; i < this.products.length; i += 3) {
-                const productsRow = []
-                for (let j = i; j < this.products.length && j < i + 3; j++) {
-                    productsRow.push(this.products[j])
-                }
-                productsGrid.push(productsRow)
-            }
-
-            return productsGrid
-        },
-    },
 }
 </script>
