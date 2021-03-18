@@ -12,6 +12,6 @@ app.use(logggerMiddleware)
 app.use("/products", productsRouter)
 app.use("/serpwow", serpWowRouter)
 
-app.listen(8000, () => {
+app.listen(3000, () => {
     console.log("server is listening...")
 })
