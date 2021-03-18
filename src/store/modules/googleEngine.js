@@ -1,11 +1,8 @@
-
-
 export const gEngine = {
-    state: {
-    },
+    state: {},
     mutations: {
-        helloModule (state) {
-            console.log('message from gModule');
+        helloModule(state) {
+            console.log("message from gModule")
         },
 
         // import SerpWow from 'google-search-results-serpwow'
@@ -38,8 +35,6 @@ export const gEngine = {
             });
         }
         */
-        
     },
-    actions: {
-    },
-  }
+    actions: {},
+}
