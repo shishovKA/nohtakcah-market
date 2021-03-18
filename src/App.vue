@@ -15,7 +15,6 @@
                 bar
                 rounded
                 solo
-                append-icon="mdi-magnify"
                 background-color="#fff"
                 color="#000"
                 light
@@ -25,6 +24,9 @@
                 :disabled="searchLoading"
             >
             </v-text-field>
+            <v-btn icon class="ml-2" @click="searchProduct">
+                <v-icon>mdi-magnify</v-icon>
+            </v-btn>
 
             <v-spacer></v-spacer>
 
